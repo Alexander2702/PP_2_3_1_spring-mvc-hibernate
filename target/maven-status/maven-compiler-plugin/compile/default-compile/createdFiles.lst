@@ -1,0 +1,9 @@
+web\servis\UserServis.class
+web\config\EntityManagerConfig.class
+web\config\AppInit.class
+web\models\User.class
+web\config\WebConfig.class
+web\dao\UserDao.class
+web\dao\UsersDaoImpl.class
+web\servis\UserServisImpl.class
+web\controller\UsersController.class
