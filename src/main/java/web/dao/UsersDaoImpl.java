@@ -23,7 +23,8 @@ public class UsersDaoImpl implements UserDao {
 
     @Override
     public User getUserById(int id) {
-        return entityManager.createQuery("FROM User WHERE id=" + id, User.class).getSingleResult();
+//        return entityManager.createQuery("FROM User WHERE id=" + id, User.class).getSingleResult();
+        return entityManager.find(User.class, id);
     }
 
     @Override

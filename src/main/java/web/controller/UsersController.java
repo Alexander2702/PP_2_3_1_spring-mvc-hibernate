@@ -22,28 +22,28 @@ public class UsersController {
         return "users-list";
     }
     @GetMapping("/user-create")
-    public String createUserForm(User user) {
+    public String newUser(Model model) {
+        model.addAttribute("user", new User());
         return "user-create";
     }
     @PostMapping("/user-create")
-    public String createUser(User user) {
+    public String createUser(@ModelAttribute("user") User user) {
         userServis.addUser(user);
         return "redirect:/users";
     }
-    @GetMapping("user-delete/{id}")
-    public String removeUser(@PathVariable("id") int id) {
-        userServis.removeUserById(id);
-        return "redirect:/users";
-    }
     @GetMapping("/user-update/{id}")
-    public String updateUserForm(@PathVariable("id") int id, Model model) {
-        User user =userServis.getUserById(id);
-        model.addAttribute("user", user);
+    public String update(Model model, @PathVariable("id") int id) {
+        model.addAttribute("user", userServis.getUserById(id));
         return "/user-update";
     }
-    @PostMapping("/user-update")
-    public String update(User user) {
+    @PatchMapping("/user-update/{id}")
+    public String updateUser(@ModelAttribute("user") User user, @PathVariable("id") int id) {
         userServis.updateUser(user);
+        return "redirect:/users";
+    }
+    @DeleteMapping("user-delete/{id}")
+    public String delete(@PathVariable("id") int id) {
+        userServis.removeUserById(id);
         return "redirect:/users";
     }
 }

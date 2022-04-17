@@ -1,25 +1,46 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<!--<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">-->
 <head>
-<meta charset="UTF-8">
-<title>Update User</title>
+    <meta charset="UTF-8">
+    <title>Update User</title>
 </head>
 <body>
-<form action="#" th:action="@{/user-update}" th:object="${user}" method="post">
-    <label for="id">ID</label>
-    <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
-    <br/>
+<form th:method="PATCH" th:action="@{/user-update/{id}(id=${user.getId()})}" th:object="${user}">
     <label for="firstName">First name</label>
-    <input type="text" th:field="*{firstName}" id="firstName" placeholder="First Name">
-    <br/>
+    <input type="text" th:field="*{firstName}" id="firstName">
     <label for="lastName">Last name</label>
-    <input type="text" th:field="*{lastName}" id="lastName" placeholder="Last Name">
-    <br/>
-    <label for="age">age</label>
-    <input type="text" th:field="*{age}" id="age" placeholder="age">
-    <br/>
+    <input type="text" th:field="*{lastName}" id="lastName">
+    <label for="age">Age</label>
+    <input type="text" th:field="*{age}" id="age">
     <input type="submit" value="Update User">
 </form>
 </body>
 </html>
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">-->
+
+<!--<head>-->
+<!--<meta charset="UTF-8">-->
+<!--<title>Update User</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<form action="#" th:action="@{/user-update}" th:object="${user}" method="post">-->
+<!--    <label for="id">ID</label>-->
+<!--    <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">-->
+<!--    <br/>-->
+<!--    <label for="firstName">First name</label>-->
+<!--    <input type="text" th:field="*{firstName}" id="firstName" placeholder="First Name">-->
+<!--    <br/>-->
+<!--    <label for="lastName">Last name</label>-->
+<!--    <input type="text" th:field="*{lastName}" id="lastName" placeholder="Last Name">-->
+<!--    <br/>-->
+<!--    <label for="age">age</label>-->
+<!--    <input type="text" th:field="*{age}" id="age" placeholder="age">-->
+<!--    <br/>-->
+<!--    <input type="submit" value="Update User">-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
